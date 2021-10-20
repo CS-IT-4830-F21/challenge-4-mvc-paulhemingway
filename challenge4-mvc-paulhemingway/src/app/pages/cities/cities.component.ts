@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CityModelService } from 'src/app/services/city-model.service';
 
 @Component({
   selector: 'app-cities',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cities.component.css']
 })
 export class CitiesComponent implements OnInit {
+  items = [];
 
-  constructor() { }
+  constructor(private afs: CityModelService) { }
 
   ngOnInit(): void {
+
+    this.afs.getItems().subscribe(data => {
+      console.log()
+    });
+
   }
 
 }

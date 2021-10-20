@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { CitiesComponent } from './pages/cities/cities.component';
@@ -22,7 +23,11 @@ import { AddReviewComponent } from './pages/add-review/add-review.component'
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFirestoreModule,
+    RouterModule.forRoot([
+      {path: 'cities', component: CitiesComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
