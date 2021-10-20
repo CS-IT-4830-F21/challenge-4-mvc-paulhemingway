@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { environment } from '../environments/environment';
+
 import { AppRoutingModule } from './app-routing.module';
 import { CitiesComponent } from './pages/cities/cities.component';
 import { BusinessesComponent } from './pages/businesses/businesses.component';
 import { ReviewsComponent } from './pages/reviews/reviews.component';
 import { AddReviewComponent } from './pages/add-review/add-review.component'
+
+import { CityModelService  } from './services/city-model.service';
 
 @NgModule({
   declarations: [
@@ -22,14 +25,14 @@ import { AddReviewComponent } from './pages/add-review/add-review.component'
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'challenge-v-mvc-paulhemingway'),
     AppRoutingModule,
     AngularFirestoreModule,
     RouterModule.forRoot([
       {path: 'cities', component: CitiesComponent}
     ])
   ],
-  providers: [],
+  providers: [CityModelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

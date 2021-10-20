@@ -14,7 +14,7 @@ export class CitiesComponent implements OnInit {
   ngOnInit(): void {
 
     this.afs.getItems().subscribe(data => {
-      console.log()
+      console.log(data[0].city)
     });
 
   }

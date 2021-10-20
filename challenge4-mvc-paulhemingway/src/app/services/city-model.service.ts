@@ -1,14 +1,29 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore'
+import { City } from '../types/city';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CityModelService {
 
-  constructor(private afs: AngularFirestore) { }
+  private citiesCollection: AngularFirestoreCollection<City>;
+  cities: Observable<City[]>
+
+  constructor(private afs: AngularFirestore) {
+    this.citiesCollection = afs.collection<City>('reviews');
+    this.cities = this.citiesCollection.valueChanges()
+   }
+
+  
 
   getItems() {
-    return this.afs.collection("test").get();
+    return this.citiesCollection.valueChanges()
   }
+
+  
 }
+
+
