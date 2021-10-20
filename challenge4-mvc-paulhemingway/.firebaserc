@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "challenge-4-mvc-paulhemingway": {
+      "hosting": {
+        "challenge4-mvc-paulhemingway": [
+          "challenge-4-mvc-paulhemingway"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "challenge-4-mvc-paulhemingway"
+  }
+}
