@@ -29,8 +29,9 @@ import { CityModelService  } from './services/city-model.service';
     AppRoutingModule,
     AngularFirestoreModule,
     RouterModule.forRoot([
+      {path: '', component: CitiesComponent},
       {path: 'cities', component: CitiesComponent},
-      {path: 'businesses', component: BusinessesComponent},
+      {path: 'businesses/:city.name', component: BusinessesComponent},
       {path: 'reviews', component: ReviewsComponent},
     ])
   ],

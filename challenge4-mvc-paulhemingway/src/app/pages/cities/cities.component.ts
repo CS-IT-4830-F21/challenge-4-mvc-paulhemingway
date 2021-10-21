@@ -21,7 +21,7 @@ export class CitiesComponent implements OnInit {
 
     this.afs.getItems().subscribe(data => {
       
-      console.log(data);
+      console.log(data[0].id);
       this.cities = data;
       
     });
