@@ -1,0 +1,14 @@
+.title h1 {
+    color: white;
+    text-align: center;
+    margin: 30px;
+}
+
+.listed-city {
+    list-style: none;
+    background-color: white;
+    margin: 20px auto;
+    padding: 15px;
+    width: 400px;
+
+}

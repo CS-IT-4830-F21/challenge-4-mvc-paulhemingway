@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgb(60, 60, 169), rgb(26, 26, 71));
+    -webkit-background-size: cover;
+    background-size: cover;
+}

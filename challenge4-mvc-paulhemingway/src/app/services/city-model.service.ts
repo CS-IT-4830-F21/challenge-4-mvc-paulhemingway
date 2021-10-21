@@ -13,7 +13,7 @@ export class CityModelService {
   cities: Observable<City[]>
 
   constructor(private afs: AngularFirestore) {
-    this.citiesCollection = afs.collection<City>('reviews');
+    this.citiesCollection = afs.collection<City>('cities');
     this.cities = this.citiesCollection.valueChanges()
    }
 

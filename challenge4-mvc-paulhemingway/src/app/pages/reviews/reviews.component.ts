@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReviewModelService } from 'src/app/services/review-model.service';
 
 @Component({
   selector: 'app-reviews',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewsComponent implements OnInit {
 
-  constructor() { }
+  items = [];
+  i = 0;
+
+  constructor(private afs: ReviewModelService) { }
 
   ngOnInit(): void {
+
+    this.afs.getItems().subscribe(data => {
+      
+      for (this.i;this.i<data.length;this.i++){
+        console.log(data.length)
+        console.log(data[this.i].body)
+      } 
+      
+    });
+
   }
 
 }
+ 
