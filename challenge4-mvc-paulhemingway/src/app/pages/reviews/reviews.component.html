@@ -1,1 +1,20 @@
-<p>reviews works!</p>
+<div class="title">
+    <h1>{{businessNameFromRoute}} Reviews</h1>
+</div>
+
+<div *ngIf="reviewCount > 0">
+    <div *ngFor="let review of reviews" class="collection">
+        
+        <div *ngIf="review.businessName == businessNameFromRoute" class="listed-review">
+            <p>{{review.author}}</p>
+            <p>Rating: {{review.rating}}</p>
+            <p>{{review.body}}</p>
+        </div>
+        
+        
+    </div>
+</div>
+
+<ng-template [ngIf]="reviewCount == 0">
+    <h5 class="no-items">There are no reviews in the database.</h5>
+</ng-template>

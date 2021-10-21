@@ -5,9 +5,10 @@
 <div *ngIf="businesses!.length > 0;else noBusinesses">
     <ul *ngFor="let business of businesses" class="collection">
         
-        <li *ngIf="business.cityName == cityNameFromRoute" class="listed-city">
+        <li *ngIf="business.cityName == cityNameFromRoute" >
             <a
-                [routerLink]="['reviews', business.businessName]">
+                [routerLink]="['reviews', business.businessName]"
+                class="listed-business">
                 {{business.businessName}}
             </a>
         </li>
@@ -18,5 +19,5 @@
 
 <ng-template #noBusinesses>
     <hr>
-    <h5>There are no cities in the database.</h5>
+    <h5 class="no-items">There are no cities in the database.</h5>
 </ng-template>

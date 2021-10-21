@@ -21,7 +21,7 @@ export class CitiesComponent implements OnInit {
 
     this.afs.getItems().subscribe(data => {
       
-      console.log(data[0].id);
+      //console.log(data[0].id);
       this.cities = data;
       
     });
@@ -29,7 +29,7 @@ export class CitiesComponent implements OnInit {
     this.bafs.getItems().subscribe(data => {
       this.businesses = data;
 
-      console.log(this.businesses)
+      //console.log(this.businesses)
     })
 
     

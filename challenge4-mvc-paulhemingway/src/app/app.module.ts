@@ -32,7 +32,7 @@ import { CityModelService  } from './services/city-model.service';
       {path: '', component: CitiesComponent},
       {path: 'cities', component: CitiesComponent},
       {path: 'businesses/:city.name', component: BusinessesComponent},
-      {path: 'reviews/:business.name', component: ReviewsComponent},
+      {path: 'businesses/:city.name/reviews/:business.businessName', component: ReviewsComponent},
     ])
   ],
   providers: [CityModelService],
