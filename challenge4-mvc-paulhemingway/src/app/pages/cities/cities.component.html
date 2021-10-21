@@ -4,7 +4,10 @@
 
 <div *ngIf="cities!.length > 0;else noCities">
     <ul *ngFor="let city of cities" class="collection">
-        <li class="listed-city">{{city.name}}</li>
+        <ul *ngFor="let business of businesses">
+            <li *ngIf="business.cityName == city.name" class="listed-city">{{city.name}}</li>
+        </ul>
+        
     </ul>
 </div>
 

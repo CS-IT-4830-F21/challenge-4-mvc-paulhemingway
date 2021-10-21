@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CityModelService } from 'src/app/services/city-model.service';
 import { City } from 'src/app/types/city';
 
+import { BusinessModelService } from 'src/app/services/business-model.service';
+import { Business } from 'src/app/types/business';
+
 @Component({
   selector: 'app-cities',
   templateUrl: './cities.component.html',
@@ -9,9 +12,10 @@ import { City } from 'src/app/types/city';
 })
 export class CitiesComponent implements OnInit {
   cities!: City[];
+  businesses!: Business[];
   i = 0;
 
-  constructor(private afs: CityModelService) { }
+  constructor(private afs: CityModelService, private bafs: BusinessModelService) { }
 
   ngOnInit(): void {
 
@@ -21,6 +25,14 @@ export class CitiesComponent implements OnInit {
       this.cities = data;
       
     });
+
+    this.bafs.getItems().subscribe(data => {
+      this.businesses = data;
+
+      console.log(this.businesses)
+    })
+
+    
 
   }
 

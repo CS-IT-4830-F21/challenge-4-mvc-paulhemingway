@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore'
 import { Business } from '../types/business';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +10,24 @@ import { Observable } from 'rxjs';
 
 export class BusinessModelService {
 
-  private citiesCollection: AngularFirestoreCollection<Business>;
-  cities: Observable<Business[]>
+  private businessesCollection: AngularFirestoreCollection<Business>;
+  businesses: Observable<Business[]>
 
   constructor(private afs: AngularFirestore) {
-    this.citiesCollection = afs.collection<Business>('businesses');
-    this.cities = this.citiesCollection.valueChanges()
+    this.businessesCollection = afs.collection<Business>('businesses');
+    this.businesses = this.afs.collection('businesses').snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Business;
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    }));
    }
 
   
 
   getItems() {
-    return this.citiesCollection.valueChanges()
+    return this.businessesCollection.valueChanges()
   }
 
   
