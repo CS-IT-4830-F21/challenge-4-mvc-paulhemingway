@@ -18,6 +18,7 @@ export class BusinessesComponent implements OnInit {
   items = [];
   i = 0;
   cityNameFromRoute!: String;
+  businessCount = 0;
 
   constructor(
     private afs: BusinessModelService, 
@@ -30,20 +31,25 @@ export class BusinessesComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     this.cityNameFromRoute = String(routeParams.get('city.name'));
 
-
-    console.log(this.cityNameFromRoute)
+    //console.log(this.cityNameFromRoute)
 
     this.afs.getItems().subscribe(data => {
-      
-      //console.log(data[0].id);
+
       this.businesses = data;
+
+      for (this.i; this.i < this.businesses?.length; this.i++){
+        if (this.businesses[this.i].cityName == this.cityNameFromRoute){
+          this.businessCount++;
+        }
+      }
+
+      console.log(this.businessCount)
+
       
     });
 
     this.rafs.getItems().subscribe(data => {
       this.reviews = data;
-
-      //console.log(this.reviews)
     })
 
   }

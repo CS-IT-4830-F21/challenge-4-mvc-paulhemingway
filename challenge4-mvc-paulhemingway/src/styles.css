@@ -8,7 +8,31 @@
 
 body {
     height: 100vh;
-    background-image: linear-gradient(rgb(60, 60, 169), rgb(26, 26, 71));
-    -webkit-background-size: cover;
-    background-size: cover;
+    background-color: white;
 }
+
+.title h1 {
+    color: black;
+    text-align: center;
+    padding-top: 30px;
+}
+
+a {
+    text-decoration: none; 
+}
+
+a:visited {
+    color: none;
+}
+
+.no-items{
+    color: black;
+    text-align: center;
+}
+
+.card {
+    width: 100%;
+    margin: 20px;
+}
+
+

@@ -26,7 +26,7 @@ export class ReviewsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     this.businessNameFromRoute = String(routeParams.get('business.businessName'));
 
-    console.log(this.businessNameFromRoute)
+    //console.log(this.businessNameFromRoute)
 
     this.afs.getItems().subscribe(data => {
       
@@ -37,7 +37,7 @@ export class ReviewsComponent implements OnInit {
           this.reviewCount++;
         }
       }
-      console.log(this.reviewCount)
+      //console.log(this.reviewCount)
       
     });
     
