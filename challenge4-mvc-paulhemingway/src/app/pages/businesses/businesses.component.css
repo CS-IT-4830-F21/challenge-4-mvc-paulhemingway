@@ -1,19 +1,6 @@
-
-.listed-business {
-    display: block;
-    list-style: none;
-    background-color: white;
-    margin: 20px auto;
-    padding: 15px;
-    width: 400px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
+.row {
+    margin: 20px;
 }
-
-.listed-business:hover {
-    background-color: rgb(236, 236, 236);
-}
-
 
 
 

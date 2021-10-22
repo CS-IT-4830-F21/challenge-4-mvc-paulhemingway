@@ -15,6 +15,8 @@ export class ReviewsComponent implements OnInit {
   i = 0;
   businessNameFromRoute!: String;
   reviewCount = 0;
+  filledStars: Number[] = []
+  emptyStars: Number[] = []
 
   constructor(
     private afs: ReviewModelService,
@@ -33,8 +35,16 @@ export class ReviewsComponent implements OnInit {
       for (this.i; this.i < this.reviews.length; this.i++){
         if (this.reviews[this.i].businessName == this.businessNameFromRoute){
           this.reviewCount++;
+          this.filledStars[this.i] = Number(this.reviews[this.i].rating)
+          this.emptyStars[this.i] = Number(5 - this.reviews[this.i].rating!)
         }
-      }   
+      }
+
+
+      console.log(this.filledStars);
+      console.log(this.emptyStars);
+
+      
     });
   }
 
