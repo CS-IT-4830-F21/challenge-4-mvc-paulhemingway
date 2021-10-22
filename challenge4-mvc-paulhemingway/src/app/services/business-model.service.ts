@@ -27,7 +27,7 @@ export class BusinessModelService {
   
 
   getItems() {
-    return this.businessesCollection.valueChanges()
+    return this.businesses;
   }
 
   
