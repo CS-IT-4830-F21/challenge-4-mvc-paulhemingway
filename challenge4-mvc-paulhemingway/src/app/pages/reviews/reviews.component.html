@@ -4,13 +4,14 @@
     </div>
 
     <div *ngIf="reviewCount > 0" class="row row-cols-2">
-        <div *ngFor="let review of reviews" class="collection">
-            
+        <div *ngFor="let review of reviews; let indexOfElement=index" class="collection">
             <div *ngIf="review.businessName == businessNameFromRoute" class="listed-review">
                 <div class="col d-flex justify-content-center">
                     <div class="card">
                       <div class="card-body">
                         <h5 class="card-title">{{review.author}}</h5>
+                        <span *ngFor="let star of [].constructor(filledStars[indexOfElement])"><i class="bi bi-star-fill"></i></span>
+                        <span *ngFor="let star of [].constructor(emptyStars[indexOfElement])"><i class="bi bi-star"></i></span>
                         <p class="card-text">{{review.body}}</p>
                         <button (click)="delete(review)" class="btn btn-primary">Remove</button>
                       </div>

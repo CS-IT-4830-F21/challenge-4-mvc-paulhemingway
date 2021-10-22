@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ReviewModelService } from 'src/app/services/review-model.service';
 import { Review } from 'src/app/types/review';
 
+import { Observable } from 'rxjs';
+
 import { ActivatedRoute } from '@angular/router';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-reviews',
@@ -11,7 +14,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ReviewsComponent implements OnInit {
   reviews!: Review[]
-  items = [];
+
+  matchedReviews!: Observable<Review>
+
   i = 0;
   businessNameFromRoute!: String;
   reviewCount = 0;
@@ -20,12 +25,17 @@ export class ReviewsComponent implements OnInit {
 
   constructor(
     private afs: ReviewModelService,
-    private route: ActivatedRoute
-    ) { }
+    private route: ActivatedRoute,
+    private mrafs: AngularFirestore
+    ) {
+      
+     }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     this.businessNameFromRoute = String(routeParams.get('business.businessName'));
+
+    
 
     this.afs.getItems().subscribe(data => {
       
@@ -39,7 +49,6 @@ export class ReviewsComponent implements OnInit {
           this.emptyStars[this.i] = Number(5 - this.reviews[this.i].rating!)
         }
       }
-
 
       console.log(this.filledStars);
       console.log(this.emptyStars);
