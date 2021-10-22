@@ -14,6 +14,7 @@ import { ReviewsComponent } from './pages/reviews/reviews.component';
 import { AddReviewComponent } from './pages/add-review/add-review.component'
 
 import { CityModelService  } from './services/city-model.service';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CityModelService  } from './services/city-model.service';
     CitiesComponent,
     BusinessesComponent,
     ReviewsComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
