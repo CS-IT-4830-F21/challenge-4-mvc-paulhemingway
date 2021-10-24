@@ -1,1 +1,27 @@
-<p>add-review works!</p>
+<form>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Full Name">
+      </div>
+      <div class="col">
+        
+        <span [innerHTML]="stars" id="stars">
+        </span>
+    <input type="range" name="rating" class="form-range" value="5" min="1" max="5" id="rating" (input)="OnChange(rating.value)" #rating>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Business Name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="City Name">
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+          <textarea class="form-control textbox" rows="4" placeholder="Review"></textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
