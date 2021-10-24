@@ -44,4 +44,8 @@ a:visited {
     padding: 35px;
 }
 
+.fa-star {
+    color: rgb(255, 0, 234); 
+    margin-right: 3px;
+ }
 

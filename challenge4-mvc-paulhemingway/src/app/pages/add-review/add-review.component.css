@@ -1,5 +1,10 @@
 form {
     padding: 50px;
+    background-color: white;
+    width: 80%;
+    margin: 40px auto 0;
+    border-radius: 10px;
+    box-shadow: 5px 8px 0 rgb(255, 0, 234);
 }
 
 .row {
@@ -14,6 +19,16 @@ form {
 .radio {
     width: auto;
 }
+
+#rating {
+    width: 50%;
+}
+
+.rating-group{
+    display: flex;
+    justify-content: space-between;
+}
+
 
 
 
