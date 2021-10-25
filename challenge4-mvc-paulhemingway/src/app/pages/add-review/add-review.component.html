@@ -15,7 +15,6 @@
       <div class="row">
         <div class="col">
           <input type="text" class="form-control" placeholder="Business Name" formControlName="businessName" required>
-          
         </div>
         <div class="col stars-group">
           <span [innerHTML]="stars" id="stars"></span>
@@ -35,5 +34,5 @@
           <textarea class="form-control textbox" maxlength="240" rows="4" placeholder="Review" formControlName="body" required></textarea>
         </div>
     </div>
-    <button class="btn btn-primary">Submit</button>
+    <button class="btn btn-primary" [disabled]="!reviewForm.valid">Submit</button>
 </form>

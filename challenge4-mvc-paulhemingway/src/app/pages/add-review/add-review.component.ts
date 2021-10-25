@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 
 import { City } from 'src/app/types/city';
 import { Business } from 'src/app/types/business';
@@ -31,11 +31,11 @@ export class AddReviewComponent implements OnInit {
     private bafs: BusinessModelService
     ) {
     this.reviewForm = new FormGroup( {
-      'author': new FormControl(null),
-      'body': new FormControl(null),
-      'listOfServices': new FormControl(null),
-      'businessName': new FormControl(null),
-      'cityName': new FormControl(null),
+      'author': new FormControl(null, [Validators.required]),
+      'body': new FormControl(null, [Validators.required]),
+      'listOfServices': new FormControl(null, [Validators.required]),
+      'businessName': new FormControl(null, [Validators.required]),
+      'cityName': new FormControl(null, [Validators.required]),
       'rating': new FormControl(3),
     })
    }
