@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReviewModelService } from 'src/app/services/review-model.service';
 import { Review } from 'src/app/types/review';
-
-import { Observable } from 'rxjs';
-
 import { ActivatedRoute } from '@angular/router';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-reviews',
@@ -14,7 +10,6 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 })
 export class ReviewsComponent implements OnInit {
   reviews: Review[] = []
-
   businessNameFromRoute: String = '';
   reviewCount = 0;
   filledStars: Number[] = []
@@ -26,18 +21,13 @@ export class ReviewsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     this.businessNameFromRoute = String(routeParams.get('business.businessName'));
 
-    
-
     this.afs.getItems().subscribe(data => {
-
       for (let i = 0; i < data.length; i++){
         if (data[i].businessName == this.businessNameFromRoute){
           this.reviewCount++;
           this.reviews.push(data[i])
         }
       }
-
-      
 
       for(let x = 0; x < this.reviews.length; x++){
         if (this.reviews[x].rating){
@@ -51,7 +41,5 @@ export class ReviewsComponent implements OnInit {
   delete(review: Review){
     this.afs.deleteReview(review);
   }
-  
-
 }
  

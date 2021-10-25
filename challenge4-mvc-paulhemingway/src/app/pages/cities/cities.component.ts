@@ -8,27 +8,15 @@ import { City } from 'src/app/types/city';
   styleUrls: ['./cities.component.css']
 })
 export class CitiesComponent implements OnInit {
-  cities!: City[];
-  i = 0;
+  cities: City[] = [];
   cityCount = 0;
 
   constructor(private afs: CityModelService) { }
 
   ngOnInit(): void {
-
     this.afs.getItems().subscribe(data => {
-      
-      //console.log(data[0].id);
       this.cities = data;
       this.cityCount = this.cities.length
-
-      //console.log(this.cities)
-
     });
-
-
-    
-
   }
-
 }
