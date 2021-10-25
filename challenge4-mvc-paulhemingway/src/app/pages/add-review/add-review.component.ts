@@ -59,7 +59,7 @@ export class AddReviewComponent implements OnInit {
     this.businessSubmit.cityName = cityName
     this.businessSubmit.listOfServices = listOfServices
     
-    //this.database.collection('reviews').add(this.reviewForm.getRawValue())
+    this.database.collection('reviews').add(this.reviewForm.getRawValue())
 
     this.cafs.getItems().subscribe(data => {
       let duplicate = false
@@ -84,6 +84,9 @@ export class AddReviewComponent implements OnInit {
         this.database.collection('businesses').add(this.businessSubmit)
       }
     })
+
+    window.alert("Your review was successfully submitted!")
+    this.reviewForm.reset()
   }
 
   OnChange(value: String) {

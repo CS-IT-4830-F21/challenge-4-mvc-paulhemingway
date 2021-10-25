@@ -3,10 +3,12 @@
 }
 
 
-.navbar-brand {
+.navbar-brand, .navbar-brand:visited {
     color: white;
 }
 
 .navbar-brand:hover {
     color: rgba(255, 255, 255, 0.7);
 }
+
+

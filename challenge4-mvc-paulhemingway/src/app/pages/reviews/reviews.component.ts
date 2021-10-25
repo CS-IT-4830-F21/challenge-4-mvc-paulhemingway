@@ -13,12 +13,9 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
-  reviews!: Review[]
+  reviews: Review[] = []
 
-  matchedReviews: Review[] = []
-
-  i = 0;
-  businessNameFromRoute!: String;
+  businessNameFromRoute: String = '';
   reviewCount = 0;
   filledStars: Number[] = []
   emptyStars: Number[] = []
@@ -32,20 +29,20 @@ export class ReviewsComponent implements OnInit {
     
 
     this.afs.getItems().subscribe(data => {
-      
-      this.reviews = data;
 
-      for (this.i; this.i < this.reviews.length; this.i++){
-        if (this.reviews[this.i].businessName == this.businessNameFromRoute){
+      for (let i = 0; i < data.length; i++){
+        if (data[i].businessName == this.businessNameFromRoute){
           this.reviewCount++;
-          this.matchedReviews.push(this.reviews[this.i])
+          this.reviews.push(data[i])
         }
       }
 
-      for(let x = 0; x < this.matchedReviews.length; x++){
-        if (this.matchedReviews[x].rating){
-          this.filledStars[x] = Number(this.matchedReviews[x].rating)
-          this.emptyStars[x] = Number(5 - this.matchedReviews[x].rating!)
+      
+
+      for(let x = 0; x < this.reviews.length; x++){
+        if (this.reviews[x].rating){
+          this.filledStars[x] = Number(this.reviews[x].rating)
+          this.emptyStars[x] = Number(5 - this.reviews[x].rating!)
         } 
       }      
     });
