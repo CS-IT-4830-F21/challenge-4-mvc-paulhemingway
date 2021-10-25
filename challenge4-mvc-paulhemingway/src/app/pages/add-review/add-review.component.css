@@ -21,7 +21,7 @@ form {
 }
 
 #rating {
-    width: 50%;
+    width: 70%;
 }
 
 .rating-group{
@@ -29,6 +29,14 @@ form {
     justify-content: space-between;
 }
 
+#rating-label {
+    display: block;
+}
+
+#stars {
+    text-align: right;
+    font-size: 20px;
+}
 
 
 

@@ -16,7 +16,9 @@ import { AddReviewComponent } from './pages/add-review/add-review.component'
 import { CityModelService  } from './services/city-model.service';
 import { TopBarComponent } from './top-bar/top-bar.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BusinessModelService } from './services/business-model.service';
+import { ReviewModelService } from './services/review-model.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase, 'challenge-v-mvc-paulhemingway'),
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFirestoreModule,
     RouterModule.forRoot([
       {path: '', component: CitiesComponent},
@@ -41,7 +44,7 @@ import { FormsModule } from '@angular/forms';
       {path: 'addreview', component: AddReviewComponent}
     ])
   ],
-  providers: [CityModelService],
+  providers: [CityModelService, BusinessModelService, ReviewModelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

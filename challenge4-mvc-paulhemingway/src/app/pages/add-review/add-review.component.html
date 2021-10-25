@@ -1,28 +1,39 @@
-<form>
+<form [formGroup]="reviewForm" (ngSubmit)="OnSubmit()">
+  <h5>Add a Review</h5>
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Full Name">
+        <input type="text" class="form-control" placeholder="Full Name" formControlName="author" required>
       </div>
-      <div class="col rating-group">
-        <span id="rating-label">Rating:</span>
+      <div class="col">
         
-        <input type="range" name="rating" class="form-range" min="1" max="5" id="rating" (input)="OnChange(rating.value)" #rating>
-        <span [innerHTML]="stars" id="stars">
-        </span>
+        <div class="rating-group">
+          <p id="rating-label">Rating:</p>
+          <input type="range" name="rating" class="form-range" value="5" min="1" max="5" id="rating" formControlName="rating" (input)="OnChange(rating.value)" #rating>  
+        </div>
       </div>
-    </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Business Name" formControlName="businessName" required>
+          
+        </div>
+        <div class="col stars-group">
+          <span [innerHTML]="stars" id="stars"></span>
+        </div>
+      </div>
+    
     <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Business Name">
+          <input type="text" class="form-control" placeholder="List of Services" formControlName="listOfServices" required>
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="City Name">
+          <input type="text" class="form-control" placeholder="City Name" formControlName="cityName" required>
         </div>
     </div>
     <div class="col">
         <div class="row">
-          <textarea class="form-control textbox" rows="4" placeholder="Review"></textarea>
+          <textarea class="form-control textbox" maxlength="240" rows="4" placeholder="Review" formControlName="body" required></textarea>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button class="btn btn-primary">Submit</button>
 </form>
