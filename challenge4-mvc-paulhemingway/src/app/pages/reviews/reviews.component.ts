@@ -39,15 +39,15 @@ export class ReviewsComponent implements OnInit {
         if (this.reviews[this.i].businessName == this.businessNameFromRoute){
           this.reviewCount++;
           this.matchedReviews.push(this.reviews[this.i])
-          this.filledStars[this.i] = Number(this.reviews[this.i].rating)
-          this.emptyStars[this.i] = Number(5 - this.reviews[this.i].rating!)
         }
       }
 
-      console.log(this.matchedReviews);
-
-
-      
+      for(let x = 0; x < this.matchedReviews.length; x++){
+        if (this.matchedReviews[x].rating){
+          this.filledStars[x] = Number(this.matchedReviews[x].rating)
+          this.emptyStars[x] = Number(5 - this.matchedReviews[x].rating!)
+        } 
+      }      
     });
   }
 

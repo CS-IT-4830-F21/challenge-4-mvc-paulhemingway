@@ -49,3 +49,11 @@ a:visited {
     margin-right: 3px;
  }
 
+ .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: rgb(255, 0, 234) !important;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: rgb(202, 0, 186) !important;
+}
