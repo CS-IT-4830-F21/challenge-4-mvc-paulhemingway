@@ -15,7 +15,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 export class ReviewsComponent implements OnInit {
   reviews!: Review[]
 
-  matchedReviews!: Observable<Review>
+  matchedReviews: Review[] = []
 
   i = 0;
   businessNameFromRoute!: String;
@@ -23,13 +23,7 @@ export class ReviewsComponent implements OnInit {
   filledStars: Number[] = []
   emptyStars: Number[] = []
 
-  constructor(
-    private afs: ReviewModelService,
-    private route: ActivatedRoute,
-    private mrafs: AngularFirestore
-    ) {
-      
-     }
+  constructor(private afs: ReviewModelService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
@@ -40,18 +34,18 @@ export class ReviewsComponent implements OnInit {
     this.afs.getItems().subscribe(data => {
       
       this.reviews = data;
-      //console.log(this.reviews)
 
       for (this.i; this.i < this.reviews.length; this.i++){
         if (this.reviews[this.i].businessName == this.businessNameFromRoute){
           this.reviewCount++;
+          this.matchedReviews.push(this.reviews[this.i])
           this.filledStars[this.i] = Number(this.reviews[this.i].rating)
           this.emptyStars[this.i] = Number(5 - this.reviews[this.i].rating!)
         }
       }
 
-      console.log(this.filledStars);
-      console.log(this.emptyStars);
+      console.log(this.matchedReviews);
+
 
       
     });

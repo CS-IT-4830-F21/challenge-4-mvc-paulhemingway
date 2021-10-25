@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BusinessesComponent implements OnInit {
   businesses!: Business[];
   reviews!: Review[];
+  matchedBusinesses: Business[] = []
   items = [];
   i = 0;
   cityNameFromRoute!: String;
@@ -31,7 +32,6 @@ export class BusinessesComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     this.cityNameFromRoute = String(routeParams.get('city.name'));
 
-    //console.log(this.cityNameFromRoute)
 
     this.afs.getItems().subscribe(data => {
 
@@ -40,6 +40,7 @@ export class BusinessesComponent implements OnInit {
       for (this.i; this.i < this.businesses?.length; this.i++){
         if (this.businesses[this.i].cityName == this.cityNameFromRoute){
           this.businessCount++;
+          this.matchedBusinesses.push(this.businesses[this.i])
         }
       }
 
