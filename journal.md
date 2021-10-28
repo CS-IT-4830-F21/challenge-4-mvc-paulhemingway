@@ -28,9 +28,12 @@ All of this was created using MVC architecture with Angular and Firebase. The mo
 
 ### MVC vs. Angular's MVC
 
+MVC is a design pattern made up of 3 independent components: model (defines data structure), view (defines what the user sees), and controller (defines control logic). This design pattern determines the way these 3 components communicate with each other. The controller is the "middle man" as it communicates to both the view and the model. However, the view and model do not directly communicate. 
+As for MVC in Angular, the framework consists of components to be generated that support the MVC design pattern. The idea of Angular is to not give components too many functions. This allows easy development, maintaining, and interpretation. Services in angular represent the model. The HTML and CSS in Angular represent the view. Lastly, the TypeScript file in the component represent the controller. 
 
 ### Angular Reactive Forms vs. Template Driven Forms
 
+The main difference between Reactive Forms and Template Driven forms is where the logic takes place. With the template driven form, the logic takes place in the template itself. In the Reactive form, the logic takes place in the component TypeScript file instead. In order to respect the MVC design pattern, reactive forms must be used, because this conserves the logic to be used in the controller rather than the view. Template driven forms are asynchronous, while reactive forms are mostly synchronous. 
 
 ### Resources:
 1. Trey Shaw and FengXiang Zhao's lectures on Firebase and Angular
