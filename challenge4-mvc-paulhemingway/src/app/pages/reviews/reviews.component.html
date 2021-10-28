@@ -1,12 +1,12 @@
 <div class="review-page-container">    
+    <a routerLink="../.." class="btn btn-primary back">{{cityNameFromRoute}} Businesses</a>
     <div class="title">
         <h1>{{businessNameFromRoute}} Reviews</h1>
     </div>
 
     <div *ngIf="reviewCount > 0" class="row row-cols-3">
-        <div *ngFor="let review of reviews; let indexOfElement=index" class="collection">
-            
-            <div class="col d-flex justify-content-center">
+        <div *ngFor="let review of matchedReviews; let indexOfElement=index" class="collection">      
+                <div class="col d-flex justify-content-center">
                     <div class="card">
                       <div class="card-body">
                         <h5 class="card-title">{{review.author}}</h5>
@@ -16,9 +16,6 @@
                         <button (click)="delete(review)" class="btn btn-primary">Remove</button>
                       </div>
                 </div> 
-            
-            
-            
             </div>
         </div>
     </div>

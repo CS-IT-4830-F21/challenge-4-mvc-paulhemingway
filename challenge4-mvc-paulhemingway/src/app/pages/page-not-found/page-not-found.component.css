@@ -1,0 +1,22 @@
+.error-container {
+    margin: 15vh auto 0;
+    text-align: center;
+    background-color: white;
+    width: 70%;
+    min-width: 600px;
+    padding: 50px;
+    border-radius: 50px;
+}
+
+.error-number {
+    font-size: 15em;
+}
+
+.not-found {
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+.btn-primary {
+    margin-bottom: 50px;
+}

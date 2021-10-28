@@ -19,6 +19,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BusinessModelService } from './services/business-model.service';
 import { ReviewModelService } from './services/review-model.service';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReviewModelService } from './services/review-model.service';
     BusinessesComponent,
     ReviewsComponent,
     AddReviewComponent,
-    TopBarComponent
+    TopBarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { ReviewModelService } from './services/review-model.service';
       {path: 'cities', component: CitiesComponent},
       {path: 'businesses/:city.name', component: BusinessesComponent},
       {path: 'businesses/:city.name/reviews/:business.businessName', component: ReviewsComponent},
-      {path: 'addreview', component: AddReviewComponent}
+      {path: 'addreview', component: AddReviewComponent},
+      {path: '**', component: PageNotFoundComponent}
     ])
   ],
   providers: [CityModelService, BusinessModelService, ReviewModelService],

@@ -9,15 +9,12 @@ import { map } from 'rxjs/operators';
 })
 
 export class CityModelService {
-
   citiesCollection: AngularFirestoreCollection<City>;
   cities: Observable<City[]>
 
   constructor(public afs: AngularFirestore) {
     this.citiesCollection = afs.collection<City>('cities');
 
-    //this.cities = this.citiesCollection.valueChanges();
-    
     this.cities = this.afs.collection('cities').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as City;
@@ -27,13 +24,9 @@ export class CityModelService {
     }));
    }
 
-  
-
   getItems() {
     return this.cities;
   }
-
-  
 }
 
 

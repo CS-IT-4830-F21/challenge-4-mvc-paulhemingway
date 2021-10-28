@@ -1,8 +1,12 @@
 <div class="business-page-container">
+  <!-- go back two parameters in the URL -->
+  <a routerLink="../.." class="btn btn-primary back">Cities</a>
     <div class="title">
         <h1>{{cityNameFromRoute}} Businesses</h1>
     </div>
 
+
+    <!-- If there are businesses in the database, display them-->
     <div *ngIf="businessCount > 0" class="row row-cols-3">
         <div *ngFor="let business of businesses" class="collection">
           <div class="col d-flex justify-content-center">
@@ -16,6 +20,7 @@
         </div>
     </div>
 
+    <!-- Do this if there are no businesses.-->
     <ng-template [ngIf]="businessCount == 0">
         <h5 class="no-items">There are no businesses in the database for this city.</h5>
     </ng-template>

@@ -25,14 +25,11 @@ export class ReviewModelService {
     }));
    }
 
-  
-
   getItems() {
     return this.reviews;
   }
 
   deleteReview(review: Review) {
-
     this.reviewDoc = this.afs.doc(`reviews/${review.id}`);
     this.reviewDoc.delete();
   }

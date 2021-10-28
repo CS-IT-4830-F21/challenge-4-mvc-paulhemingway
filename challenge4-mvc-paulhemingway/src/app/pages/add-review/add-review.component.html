@@ -17,6 +17,7 @@
           <input type="text" class="form-control" placeholder="Business Name" formControlName="businessName" required>
         </div>
         <div class="col stars-group">
+          <!-- bind the span element to the stars variable-->
           <span [innerHTML]="stars" id="stars"></span>
         </div>
       </div>
@@ -34,5 +35,7 @@
           <textarea class="form-control textbox" maxlength="240" rows="4" placeholder="Review" formControlName="body" required></textarea>
         </div>
     </div>
+
+    <!--Disable the submit button until all the input is valid.-->
     <button class="btn btn-primary" [disabled]="!reviewForm.valid">Submit</button>
 </form>

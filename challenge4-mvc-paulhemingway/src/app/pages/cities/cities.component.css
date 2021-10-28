@@ -1,13 +1,20 @@
+.card {
+    width: 600px;
+    margin: 40px auto;
+}
 
-.listed-city {
-    display: block;
-    list-style: none;
-    background-color: rgb(206, 223, 255);
-    margin: 20px auto;
+.card-title {
+    font-size: 1.6em;
+    margin: auto 0;
+}
+
+.card-body {
     padding: 15px;
-    width: 400px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    
 }
 
 .listed-city:hover {
@@ -17,4 +24,6 @@
 .city-page-container {
     height: 100%;
 }
+
+
 

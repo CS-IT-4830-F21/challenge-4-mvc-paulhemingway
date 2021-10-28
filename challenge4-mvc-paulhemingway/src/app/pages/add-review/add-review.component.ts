@@ -50,6 +50,7 @@ export class AddReviewComponent implements OnInit {
   OnSubmit() {
     let reviewFormRaw = this.reviewForm.getRawValue()
 
+    // get all information needed to submit to all 3 databases
     let cityName = reviewFormRaw.cityName;
     let businessName = reviewFormRaw.businessName;
     let listOfServices = reviewFormRaw.listOfServices;
@@ -59,10 +60,12 @@ export class AddReviewComponent implements OnInit {
     this.businessSubmit.cityName = cityName
     this.businessSubmit.listOfServices = listOfServices
     
+    // add review to database
     this.database.collection('reviews').add(this.reviewForm.getRawValue())
 
     this.cafs.getItems().subscribe(data => {
       let duplicate = false
+      // if the city is not already in the database, add a document
       for (let i = 0; i<data.length; i++) {
         if (data[i].name == cityName){
           duplicate = true
@@ -75,6 +78,7 @@ export class AddReviewComponent implements OnInit {
     })
     this.bafs.getItems().subscribe(data => {
       let duplicate = false
+      // if the business is not already in the database, add a document
       for (let i = 0; i<data.length; i++) {
         if (data[i].businessName == businessName && data[i].cityName == cityName){
           duplicate = true
@@ -86,6 +90,7 @@ export class AddReviewComponent implements OnInit {
     })
 
     window.alert("Your review was successfully submitted!")
+    // clear the form after submission
     this.reviewForm.reset()
   }
 
@@ -93,10 +98,12 @@ export class AddReviewComponent implements OnInit {
    this.stars = ''
    const number = Number(value)
 
+  // add filled stars based on the rating
    for (let i = 0; i < number; i++){
     this.stars = this.stars + '<i class="fas fa-star"></i>'
    }
 
+  // add outlined stars if the rating is not 5
    for (let i = 0; i < 5-number; i++){
     this.stars = this.stars + '<i class="far fa-star"></i>'
    }

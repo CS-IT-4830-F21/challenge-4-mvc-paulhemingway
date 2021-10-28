@@ -18,6 +18,7 @@ export class BusinessModelService {
     this.businesses = this.afs.collection('businesses').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Business;
+        // add id to the data
         data.id = a.payload.doc.id;
         return data;
       })

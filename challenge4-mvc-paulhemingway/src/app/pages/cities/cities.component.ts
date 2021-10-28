@@ -14,6 +14,8 @@ export class CitiesComponent implements OnInit {
   constructor(private afs: CityModelService) { }
 
   ngOnInit(): void {
+
+    // collect city data, and get count based on length
     this.afs.getItems().subscribe(data => {
       this.cities = data;
       this.cityCount = this.cities.length
