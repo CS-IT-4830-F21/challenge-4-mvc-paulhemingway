@@ -13,10 +13,12 @@ Components
 4. Add Review: Allows user to submit their own review using Angular reactive forms.
 5. Top Bar: On every page, has a link to the home page as well as a link to add a review.
 6. Page not found: Page appears when the URL is unrecognizable.
+
 Services
 1. City Model Service: Retrieves the data from the cities firestore collection and sends it to the controller when the getItems() function is called.
 2. Busines Model Service: Retrieves the data from the businesses firestore collection and sends it to the controller when the getItems() function is called.
 3. Review Model Service: Retrieves the data from the reviews firestore collection and sends it to the controller when the getItems() function is called. Also has a delete function.
+
 Interfaces
 1. City: id, name
 2. Business: id, businessName, listOfServices
