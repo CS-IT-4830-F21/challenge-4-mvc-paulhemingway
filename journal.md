@@ -6,21 +6,21 @@ Link to running code: https://challenge-4-mvc-paulhemingway.web.app/
 ### Summary
 For this project, I created a web application that lets users add/remove reviews about certain businesses in certain cities. The reviews contain the author, body, and rating. 
 
--- Components
-    1. Cities: displays all the cities listed in the database.
-    2. Businesses: Displays all the businesses in the specific city that was clicked on. 
-    3. Reviews: Displays all the reviews of the business that was clicked on. Allows deletion for each review. 
-    4. Add Review: Allows user to submit their own review using Angular reactive forms.
-    5. Top Bar: On every page, has a link to the home page as well as a link to add a review.
-    6. Page not found: Page appears when the URL is unrecognizable.
--- Services
-    1. City Model Service: Retrieves the data from the cities firestore collection and sends it to the controller when the getItems() function is called.
-    2. Busines Model Service: Retrieves the data from the businesses firestore collection and sends it to the controller when the getItems() function is called.
-    3. Review Model Service: Retrieves the data from the reviews firestore collection and sends it to the controller when the getItems() function is called. Also has a delete function.
--- Interfaces
-    1. City: id, name
-    2. Business: id, businessName, listOfServices
-    3. Review: id, author, body, rating, cityName, businessName
+Components
+1. Cities: displays all the cities listed in the database.
+2. Businesses: Displays all the businesses in the specific city that was clicked on. 
+3. Reviews: Displays all the reviews of the business that was clicked on. Allows deletion for each review. 
+4. Add Review: Allows user to submit their own review using Angular reactive forms.
+5. Top Bar: On every page, has a link to the home page as well as a link to add a review.
+6. Page not found: Page appears when the URL is unrecognizable.
+Services
+1. City Model Service: Retrieves the data from the cities firestore collection and sends it to the controller when the getItems() function is called.
+2. Busines Model Service: Retrieves the data from the businesses firestore collection and sends it to the controller when the getItems() function is called.
+3. Review Model Service: Retrieves the data from the reviews firestore collection and sends it to the controller when the getItems() function is called. Also has a delete function.
+Interfaces
+1. City: id, name
+2. Business: id, businessName, listOfServices
+3. Review: id, author, body, rating, cityName, businessName
     
 All of this was created using MVC architecture with Angular and Firebase. The model was the services. These services were used to access the data and add to or delete from the database. They used the AngularFirestore module to do these things. The View was the HTML and CSS of the components. The review, business, and city pages got the data from the controller (that got the data from the model) to display for the user to see. The add review page took user input and sent that to the controller to translate and send to the model. The controller was the ts files of the components. It receives the data from the model and send it to the view, and vice versa. It consisted of methods from the model that manipulates the data. 
 
