@@ -31,6 +31,10 @@ export class BusinessModelService {
     return this.businesses;
   }
 
+  addBusiness(business: Business) {
+    this.afs.collection('businesses').add(business)
+  }
+
   
 }
 

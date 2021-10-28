@@ -27,6 +27,10 @@ export class CityModelService {
   getItems() {
     return this.cities;
   }
+
+  addCity(city: City) {
+    this.afs.collection('cities').add(city)
+  }
 }
 
 

@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Review } from '../types/review';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { FormGroup, FormsModule } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,10 @@ export class ReviewModelService {
   deleteReview(review: Review) {
     this.reviewDoc = this.afs.doc(`reviews/${review.id}`);
     this.reviewDoc.delete();
+  }
+
+  addReview(reviewForm: FormGroup) {
+    this.afs.collection('reviews').add(reviewForm.getRawValue())
   }
 }
 

@@ -7,6 +7,7 @@ import { Business } from 'src/app/types/business';
 
 import { CityModelService } from 'src/app/services/city-model.service';
 import { BusinessModelService } from 'src/app/services/business-model.service';
+import { ReviewModelService } from 'src/app/services/review-model.service';
 
 @Component({
   selector: 'app-add-review',
@@ -28,7 +29,8 @@ export class AddReviewComponent implements OnInit {
   constructor(
     private database: AngularFirestore,
     private cafs: CityModelService,
-    private bafs: BusinessModelService
+    private bafs: BusinessModelService,
+    private reviewService: ReviewModelService
     ) {
     this.reviewForm = new FormGroup( {
       'author': new FormControl(null, [Validators.required]),
@@ -41,10 +43,7 @@ export class AddReviewComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.stars = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>'
-    
-
-    
+    this.stars = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>'    
   }
 
   OnSubmit() {
@@ -61,7 +60,7 @@ export class AddReviewComponent implements OnInit {
     this.businessSubmit.listOfServices = listOfServices
     
     // add review to database
-    this.database.collection('reviews').add(this.reviewForm.getRawValue())
+    this.reviewService.addReview(this.reviewForm.getRawValue())
 
     this.cafs.getItems().subscribe(data => {
       let duplicate = false
@@ -72,7 +71,7 @@ export class AddReviewComponent implements OnInit {
         }
       }
       if(duplicate == false){
-        this.database.collection('cities').add(this.citySubmit)
+        this.cafs.addCity(this.citySubmit)
       }
 
     })
@@ -85,7 +84,7 @@ export class AddReviewComponent implements OnInit {
         }
       }
       if(duplicate == false){
-        this.database.collection('businesses').add(this.businessSubmit)
+        this.bafs.addBusiness(this.businessSubmit)
       }
     })
 
