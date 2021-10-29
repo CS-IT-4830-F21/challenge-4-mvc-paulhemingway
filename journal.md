@@ -26,6 +26,11 @@ Interfaces
     
 All of this was created using MVC architecture with Angular and Firebase. The model was the services. These services were used to access the data and add to or delete from the database. They used the AngularFirestore module to do these things. The View was the HTML and CSS of the components. The review, business, and city pages got the data from the controller (that got the data from the model) to display for the user to see. The add review page took user input and sent that to the controller to translate and send to the model. The controller was the ts files of the components. It receives the data from the model and send it to the view, and vice versa. It consisted of methods from the model that manipulates the data. 
 
+### Challenges I faced.
+-- Getting used to the MVC design pattern. The way I overcame this was by starting to focus more on the structure of the application while I was still planning on how I was supposed to implement it. I got on my iPad and drew a diagram and wrote some notes which really helped me understand the purpose of MVC and how I would use it for this project.
+-- Getting the data. Using get(), I always received some Firestore object with a lot of information I didn't need. I referred to a YouTube tutorial (#2 in references) that explained how snapshotChanges() worked, and using that, I was able to get all the data needed to send to the view. 
+-- Adding reviews to the database. I spent some time struggling with how I was going to send the data to store. The way I solved this was I decided on taking all the data from the review form and sending it to three different collections. The city collection had just the city name sent, the business collection had the business name and city name, and the reviews collection had everything. That way, I can filter through by comparing city/business names. 
+
 ### MVC vs. Angular's MVC
 
 MVC is a design pattern made up of 3 independent components: model (defines data structure), view (defines what the user sees), and controller (defines control logic). This design pattern determines the way these 3 components communicate with each other. The controller is the "middle man" as it communicates to both the view and the model. However, the view and model do not directly communicate. 
